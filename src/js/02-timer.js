@@ -60,6 +60,11 @@ function onStartTimer() {
     refs.hoursValue.textContent = addLeadingZero(timer.hours);
     refs.minutesValue.textContent = addLeadingZero(timer.minutes);
     refs.secondsValue.textContent = addLeadingZero(timer.seconds);
+
+    if (timer.seconds <= 0) {
+      clearInterval(timerId);
+      Notiflix.Notify.success(`TIME IS UP!!!!`);
+    }
   }, 1000);
 }
 
