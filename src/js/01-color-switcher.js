@@ -12,21 +12,18 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-
 function changingColorHandler() {
-    timerId = setInterval(() => {
-        document.body.style.backgroundColor = getRandomHexColor();
-    }, 1000)
+  timerId = setInterval(() => {
+    document.body.style.backgroundColor = getRandomHexColor();
+  }, 1000);
 
-
-    startBtn.disabled = true;
-    stopBtn.disabled = false;
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
 }
 
 function discardChangingColorHandler() {
-    clearInterval(timerId)
+  clearInterval(timerId);
 
-
-    startBtn.disabled = false;
-    stopBtn.disabled = true;
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
 }
