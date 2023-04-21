@@ -53,18 +53,20 @@ function convertMs(ms) {
 function onStartTimer() {
   const timerId = setInterval(() => {
     const differenceInTime = new Date(refs.input.value) - Date.now();
-
-    let timer = convertMs(differenceInTime);
-
-    refs.daysValue.textContent = addLeadingZero(timer.days);
-    refs.hoursValue.textContent = addLeadingZero(timer.hours);
-    refs.minutesValue.textContent = addLeadingZero(timer.minutes);
-    refs.secondsValue.textContent = addLeadingZero(timer.seconds);
-
-    if (timer.seconds <= 0) {
+    
+    if (differenceInTime >= 0) {
+      let timer = convertMs(differenceInTime);
+  
+      refs.daysValue.textContent = addLeadingZero(timer.days);
+      refs.hoursValue.textContent = addLeadingZero(timer.hours);
+      refs.minutesValue.textContent = addLeadingZero(timer.minutes);
+      refs.secondsValue.textContent = addLeadingZero(timer.seconds);
+      
+    } else {
       clearInterval(timerId);
       Notiflix.Notify.success(`TIME IS UP!!!!`);
     }
+
   }, 1000);
 }
 
